@@ -15,7 +15,8 @@ import re
 import time
 import os
 import requests
-from bilibili_api import exceptions
+from . import exceptions
+# import bilibili_api.exceptions as exceptions
 import urllib3
 import copy
 

@@ -24,7 +24,6 @@ def get_channel_info_by_tid(tid: int):
     """
     with open(os.path.join(utils.get_project_path(), "data/channel.json"), encoding="utf8") as f:
         channel = json.loads(f.read())
-
     for main_ch in channel:
         if "tid" not in main_ch:
             continue
