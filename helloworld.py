@@ -63,8 +63,8 @@ class channleDynamic(Resource):
 class channleRank(Resource):
       def get(self):
          # date = json.loads(request.get_data(as_text=True))
-         rid=request.args.get("rid")
-         day=request.args.get("day")
+         rid=int(request.args.get("rid"))
+         day=int(request.args.get("day"))
          return spiderBiliChannle.getChannleRank(rid,day)
 
 
