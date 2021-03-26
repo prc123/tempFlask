@@ -3,20 +3,7 @@ from flask_restful import reqparse, abort, Api, Resource
 # from app.dmscripy.spider.spiderClass import *
 from app.dmscripy.spider.spiderBiliView import *
 from app.dmscripy.spider.spiderBiliChannle import *
-from flask_cors import CORS
 import json
-# from app.api.bilibili_api.channel import *
-
-app = Flask(__name__)
-CORS(app, supports_credentials=True)
-api = Api(app)
-
-
-
-@app.route('/')
-def hello_world():
-   return 'Hello World'
-
 class getDingApi(Resource):
       def get(self):
          return spiderBiliView.getDing()
@@ -66,30 +53,3 @@ class channleRank(Resource):
          rid=int(request.args.get("rid"))
          day=int(request.args.get("day"))
          return spiderBiliChannle.getChannleRank(rid,day)
-
-
-api.add_resource(getBannerApi, '/banner')
-api.add_resource(getDingApi, '/ding')
-
-# api.add_resource(getPromote, '/promote')
-api.add_resource(getPromote, '/promote')
-# api.add_resource(contentRank, '/contentrank/')
-api.add_resource(contentRankList, '/contentrank')
-api.add_resource(contentRankWeek, '/contentrankweek')
-api.add_resource(getRecommend, '/ranking3')
-api.add_resource(live, '/live')
-api.add_resource(channleDynamic, '/region')
-api.add_resource(channleRank, '/regionrank')
-
- 
-
-
-
-
-# api.add_resource(contentRankWeek, '/ranking3')
-if __name__ == '__main__':
-
-   # print(a)
-   # print(b)
-   # app.run(port=9050,debug=True)
-

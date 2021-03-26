@@ -1029,6 +1029,7 @@
         },
         "comment": "发送评论"
       },
+      
       "like": {
         "url": "https://api.bilibili.com/x/v2/reply/action",
         "method": "POST",
@@ -1088,6 +1089,20 @@
         },
         "comment": "获取评论"
       },
+      "main": {
+          "url": "https://api.bilibili.com/x/v2/reply/main",
+          "method": "GET",
+          "verify": false,
+          "data": {
+            "oid": "各种类型id",
+            "type": "1视频，12专栏，11画册动态，17文字动态，14音频，19歌单。下同。",
+            "message": "评论内容",
+            "plat": "1",
+            "root": "根评论rpid，即在谁的评论下面回复，为空时在oid下直接评论",
+            "parent": "父评论rpid，即回复谁的评论，为空时在oid下直接评论"
+          },
+          "comment": "获取评论"
+        },
       "sub_reply": {
         "url": "https://api.bilibili.com/x/v2/reply/reply",
         "method": "GET",
@@ -1102,6 +1117,7 @@
         "comment": "获取评论的回复评论"
       }
     },
+ 
     "dynamic_share": {
       "url": "https://api.vc.bilibili.com/dynamic_repost/v1/dynamic_repost/share",
       "method": "POST",

@@ -949,6 +949,25 @@ def get_comments_g(bvid: str = None, aid: int = None, order: str = "time", verif
         aid = utils.bvid2aid(bvid)
 
     replies = common.get_comments(aid, "video", order, verify)
+
+    return replies
+
+def get_comments_main(bvid: str = None, aid: int = None, order: str = "time", verify: utils.Verify = None):
+    """
+    获取评论
+    :param order:
+    :param aid:
+    :param bvid:
+    :param verify:
+    :return:
+    """
+    if not (aid or bvid):
+        raise exceptions.NoIdException
+    if aid is None:
+        aid = utils.bvid2aid(bvid)
+
+    replies = common.get_comments_main(aid, "video",verify)
+
     return replies
 
 

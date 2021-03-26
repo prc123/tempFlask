@@ -148,6 +148,34 @@ def get_comments_raw(oid: int, type_: str, order: str = "time", pn: int = 1, ver
     return resp
 
 
+def get_comments_main(oid: int, type_: str, verify: utils.Verify = None):
+    """
+    获取主评论
+    :param oid:
+    :param type_:
+    :param order:
+    :param pn:
+    :param verify:
+    :return:
+    """
+    if verify is None:
+        verify = utils.Verify()
+
+    type_ = COMMENT_TYPE_MAP.get(type_, None)
+    assert type_ is not None, exceptions.BilibiliApiException("不支持的评论类型")
+
+    # 参数检查完毕
+    params = {
+        "oid": oid,
+        "type": type_,
+    }
+    comment_api = API["common"]["comment"]
+    api = comment_api.get("main", None)
+ 
+    resp = utils.get(api["url"], params=params, cookies=verify.get_cookies())
+    return resp
+
+
 def get_comments(oid: int, type_: str, order: str = "time", verify: utils.Verify = None):
     """
     通用循环获取评论，使用生成器语法
