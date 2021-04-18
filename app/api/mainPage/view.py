@@ -53,3 +53,4 @@ class channleRank(Resource):
          rid=int(request.args.get("rid"))
          day=int(request.args.get("day"))
          return spiderBiliChannle.getChannleRank(rid,day)
+

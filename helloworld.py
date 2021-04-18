@@ -5,6 +5,7 @@ from app.dmscripy.spider.spiderBiliView import *
 from app.dmscripy.spider.spiderBiliChannle import *
 from flask_cors import CORS
 import json
+# from app.lib.bilibili_api import utils
 # from app.api.bilibili_api.channel import *
 
 app = Flask(__name__)
@@ -88,7 +89,7 @@ api.add_resource(channleRank, '/regionrank')
 
 # api.add_resource(contentRankWeek, '/ranking3')
 if __name__ == '__main__':
-
+   print(request_settings)
    # print(a)
    # print(b)
    # app.run(port=9050,debug=True)

@@ -1,7 +1,6 @@
 from flask_restful import Api
 from .import mainPage
 from .view import *
-
 # 将 user 模块蓝图加入Api进行管理
 api = Api(mainPage)
 
@@ -18,3 +17,7 @@ api.add_resource(getRecommend, '/ranking3')
 api.add_resource(live, '/live')
 api.add_resource(channleDynamic, '/region')
 api.add_resource(channleRank, '/regionrank')
+
+
+
+    

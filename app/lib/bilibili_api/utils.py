@@ -19,6 +19,12 @@ from . import exceptions
 # import bilibili_api.exceptions as exceptions
 import urllib3
 import copy
+import app.setting
+from app.lib.webRequest import webRequest
+from app.setting import default
+
+utilsRequest=webRequest.webRequest(default)
+
 
 request_settings = {
     "use_https": True,
@@ -240,8 +246,11 @@ class Verify(object):
             ret["message"] = "未提供SESSDATA"
         else:
             api = "https://api.bilibili.com/x/web-interface/archive/like"
-            data = {"bvid": "BV1uv411q7Mv", "like": 1, "csrf": self.csrf}
-            req = requests.post(url=api, data=data, cookies=self.get_cookies())
+            # data = {"bvid": "BV1uv411q7Mv", "like": 1, "csrf": self.csrf}
+            data = {"bvid": "BV12b411K7Zu", "like": 1, "csrf": self.csrf}
+            
+            req =  utilsRequest.request("POST",url=api, data=data, cookies=self.get_cookies())
+            
             if req.ok:
                 con = req.json()
                 if con["code"] == -111:
@@ -368,12 +377,13 @@ def request(method: str, url: str, params=None, data=None, cookies=None, headers
         "headers": headers,
         "verify": request_settings["use_https"],
         "data": data,
-        "proxies": request_settings["proxies"],
+        # "proxies": request_settings["proxies"],
         "cookies": cookies
     }
     st.update(kwargs)
+    #req = requests.request(method, **st)
+    req = utilsRequest.request(method, **st)
 
-    req = requests.request(method, **st)
     if req.ok:
         content = req.content.decode("utf8")
         if req.headers.get("content-length") == 0:
@@ -429,6 +439,7 @@ def post(url, cookies, data=None, headers=None, data_type: str = "form", **kwarg
     :return:
     """
     resp = request("POST", url=url, data=data, cookies=cookies, headers=headers, data_type=data_type, **kwargs)
+    
     return resp
 
 

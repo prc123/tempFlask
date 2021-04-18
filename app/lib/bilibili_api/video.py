@@ -396,6 +396,7 @@ def get_danmaku_view(page_id: int, bvid: str = None, aid: int = None, verify: ut
     if not aid:
         aid = utils.bvid2aid(bvid)
     api = API["video"]["danmaku"]["view"]['url']
+  
     resp = requests.get(api, params={
         "type": 1,
         "oid": page_id,
@@ -702,12 +703,15 @@ def get_danmaku_g(bvid: str = None, aid: int = None, page_id: int = 0,
         }
     # 先获取 view 信息
     view = get_danmaku_view(page_id, aid=aid)
+    # print("sfdaaaaaaaaaaaaaaaaaaa")
+    # print(view)
     sge_count = view['dmSge']['total']
     # 循环获取所有 segment
     danmakus = []
     for i in range(sge_count):
         params['segment_index'] = i + 1
         req = requests.get(api["url"], params=params, headers=utils.DEFAULT_HEADERS, cookies=verify.get_cookies())
+        
         if req.ok:
             content_type = req.headers['content-type']
             if content_type == 'application/json':

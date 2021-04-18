@@ -4,7 +4,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 from flask_session import Session
 from flask_wtf import CSRFProtect
-from config import config_map
+from app.config import config_map
 # from flask_sqlalchemy import SQLAlchemy
 
 
@@ -15,7 +15,7 @@ from config import config_map
 # redis_store = None
 
 # # 为flask补充csrf防护
-csrf = CSRFProtect()
+# csrf = CSRFProtect()
 
 # # 设置日志的记录等级
 # logging.basicConfig(level=logging.DEBUG)
@@ -51,10 +51,13 @@ def create_app(config_name):
     # Session(app)
 
     # 初始化
-    csrf.init_app(app)
+    #csrf = CSRFProtect()
+    # csrf.init_app(app)
 
     from app.api.mainPage import mainPage
     from app.api.videoPage import videoPage
+    from app.api.userinfo import user
     app.register_blueprint(mainPage)
     app.register_blueprint(videoPage)
+    app.register_blueprint(user)
     return app
