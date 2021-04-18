@@ -1,0 +1,75 @@
+{
+    "biliView": {
+        "Ding": {
+            "url": "http://www.bilibili.com/index/ding.json"
+        },
+        "banner": {
+            "url": "http://api.bilibili.com/x/web-show/res/loc?pf=0&id=23"
+        },
+        "getSearchDefaultWords": {
+            "url": "http://www.bilibili.com/widget/getSearchDefaultWords"
+        },
+        "topbg": {
+            "url": "http://api.bilibili.com/x/web-show/res/loc?pf=0&id=142"
+        },
+        "hot": {
+            "url": "http://api.bilibili.com/x/web-show/res/locs?pf=0&ids=1550,1554,1556,1558,1560,1562,1564,1566,1568,1570,1572,1574,1624,1636"
+        },
+        "promote": {
+            "url": "http://api.bilibili.com/x/web-show/res/loc?pf=0&id=34"
+        },
+        "promoteAd": {
+            "url": "http://api.bilibili.com/x/web-show/res/loc?pf=0&id=29"
+        },
+        "liveXhr": {
+            "url": "http://api.live.bilibili.com/bili/recom"
+        },
+        "slideshow": {
+            "url": "http://www.bilibili.com/index/slideshow/41.json"
+        },
+        "season": {
+            "url": "http://www.bilibili.com/api_proxy?app=bangumi&action=get_season_by_tag&page=1&tag_id=101&pagesize=4"
+        },
+        "rankbase":{
+            "url":"http://www.bilibili.com/index/catalogy/"
+        },
+        "recommend":{
+            "url":"http://www.bilibili.com/index/recommend.json"
+        },
+         "live":{
+            "url":"https://api.live.bilibili.com/xlive/web-interface/v1/webMain/getList?platform=web"
+            }
+
+        ,
+        "onlinenum":{
+            "url":""
+        }
+
+    },
+    "channelView":{
+        "ranking":{
+            "get_top10":{
+                "url":"https://api.bilibili.com/x/web-interface/ranking/region",
+                "method": "GET",
+                "verify": false,
+                "params": {
+                  "rid": "tid，分区id",
+                  "day": "3，7"
+                },
+                "comment": "获取分区前十排行榜"
+            }
+
+        },
+        "dynamic":{
+            "url":"https://api.bilibili.com/x/web-interface/dynamic/region",
+            "method": "GET",
+            "verify": false,
+            "params": {
+              "rid": "tid，分区id",
+              "ps": "推荐视频数"
+            }
+        }
+
+
+    }
+}
