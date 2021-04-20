@@ -15,4 +15,4 @@ manager = Manager(app)
 
 if __name__ == '__main__':
     # manager.run()
-    app.run(port=9050,debug=True)
+    app.run(port=9050,host='0.0.0.0',debug=True)

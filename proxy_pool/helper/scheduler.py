@@ -16,7 +16,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.executors.pool import ProcessPoolExecutor
 import sys,os
 
-sys.path.append(os.path.abspath('../proxy_pool'))
+sys.path.append(os.path.abspath('./proxy_pool'))
 
 from util.six import Queue
 from helper.proxy import Proxy

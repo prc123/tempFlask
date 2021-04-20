@@ -12,7 +12,7 @@ websockets==8.1
 Flask_RESTful==0.3.8
 APScheduler==3.2.0
 Flask_Migrate==2.7.0
-Werkzeug==0.15.3
+Werkzeug==0.15.5
 Flask_Script==2.0.6
 Flask==1.0
 Flask_Cors==3.0.10
@@ -25,7 +25,7 @@ itsdangerous==1.1.0
 numpy==1.19.1
 beautifulsoup4==4.9.3
 cssutils==2.2.0
-paddle==1.0.2
+paddlepaddle
 pymongo==3.11.3
 sphinx_rtd_theme==0.5.2
 whoosh==2.7.4
